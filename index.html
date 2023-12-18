@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="inputs">
+        <input type="text" readonly id="show" />
+      </div>
+      <div class="buttons">
+        <button onclick="clearResult()" class="btn1">C</button>
+        <button onclick="addNuum('.')">.</button>
+        <button onclick="operator('/')">/</button>
+        <button onclick="operator('*')">*</button>
+        <button onclick="addNuum('7')">7</button>
+        <button onclick="addNuum('8')">8</button>
+        <button onclick="addNuum('9')">9</button>
+        <button onclick="operator('-')">-</button>
+        <button onclick="addNuum('4')">4</button>
+        <button onclick="addNuum('5')">5</button>
+        <button onclick="addNuum('6')">6</button>
+        <button onclick="operator('+')">+</button>
+        <button onclick="addNuum('1')">1</button>
+        <button onclick="addNuum('2')">2</button>
+        <button onclick="addNuum('3')">3</button>
+        <button onclick="calculator()">=</button>
+        <button onclick="addNuum('0')">0</button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  //Showing
+  let input = "";
+  let calculate = "";
+  function addNuum(values) {
+    input += values;
+    document.getElementById("show").value = input;
+  }
+  //func clear
+  function clearResult() {
+    input = "";
+    document.getElementById("show").value = input;
+  }
+  //func operator
+  function operator(op) {
+    input += op;
+    document.getElementById("show").value = input;
+  }
+  //func Equal
+  function calculator() {
+    if (isNaN(input)) {
+      calculate = eval(input);
+      document.getElementById("show").value = calculate;
+    } else {
+      document.getElementById("show").value = "";
+    }
+  }
+</script>
